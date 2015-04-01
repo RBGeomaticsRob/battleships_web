@@ -1,10 +1,15 @@
 <form action='/hit'>
-<<<<<<< HEAD
- <input type='text' name='Coordinate'>
- <input type='submit'>
- <% @return = 'hit' if @coordinate == 'A1'%>
-=======
   <input type='text' name='coordinate'>
   <button>submit</button>
->>>>>>> refs/remotes/origin/master
 </form>
+<form action='/set_ship'>
+  <input type='text' name='location'>
+  <input type='text' name='direction'>
+  <button>submit</button>
+</form>
+<div>
+ships = <%= @user.board.ships %>
+hits = <%= @user.hits.length %>
+misses = <%= @user.misses.length %>
+game won? <%= @user.lost? %>
+</div>

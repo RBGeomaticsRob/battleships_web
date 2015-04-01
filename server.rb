@@ -1,11 +1,14 @@
+require './lib/destroyer'
+require './lib/player'
 require 'sinatra/base'
 
 class Battleships < Sinatra::Base
   enable :sessions
   get '/' do
+    session[:player] ||= Player.new
+    @user = session[:player]
     puts '==='*20
     puts session.inspect
-    @coordinate = session[:coordinate]
     erb :battleships
   end
 
@@ -13,10 +16,21 @@ class Battleships < Sinatra::Base
     puts '***'*20
     puts session.inspect
     @coordinate = params[:coordinate]
-    session[:coordinate] = @coordinate
+    player = session[:player]
+    player.receive_hit(@coordinate)
+    session[:player] = player
     puts session.inspect
     erb :hit
   end
+
+  get '/set_ship' do
+    @location = params[:location]
+    @user = session[:player]
+    @user.place(Destroyer, 'A1', :south)
+    session[:player] = @user
+    erb :hit
+  end
+
 
   # start the server if ruby file executed directly
   run! if app_file == $0
