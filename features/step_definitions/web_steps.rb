@@ -3,7 +3,7 @@ Given(/^I am on the Battleships page$/) do
 end
 
 When(/^I send "([^"]*)"$/) do |arg1|
-  fill_in('coordinate', with: arg1)
+  fill_in('coordinate', :with => arg1)
 end
 
 When(/^I click the submit button$/) do
