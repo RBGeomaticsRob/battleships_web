@@ -1,15 +1,14 @@
 require 'sinatra/base'
 
 class Battleships < Sinatra::Base
+
   get '/' do
     erb :battleships
   end
 
   get '/hit' do
     @coordinate = params[:coordinate]
-    "<div>
-      Hello, it's a <%= @return %>!
-    </div>"
+    erb :hit
   end
 
   # start the server if ruby file executed directly
