@@ -13,3 +13,15 @@ end
 Then(/^I should see "([^"]*)"$/) do |arg1|
   expect(page).to have_content(arg1)
 end
+
+Given(/^I already have ship in A(\d+)$/) do |arg1|
+  
+end
+
+Then(/^I should see 'error page'$/) do
+  
+end
+
+Then(/^I receive an error message$/) do
+  
+end
