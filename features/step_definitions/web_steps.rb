@@ -2,8 +2,8 @@ Given(/^I am on the Battleships page$/) do
   visit '/'
 end
 
-When(/^I enter "([^"]*)"$/) do |arg1|
-  fill_in('player_name', :with => arg1)
+When(/^I send "([^"]*)"$/) do |arg1|
+  fill_in('coordinate', :with => arg1)
 end
 
 When(/^I click the submit button$/) do

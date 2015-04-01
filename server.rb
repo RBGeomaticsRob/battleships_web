@@ -2,22 +2,13 @@ require 'sinatra/base'
 
 class Battleships < Sinatra::Base
 
-  enable :sessions
-
   get '/' do
-    puts "===" * 20
-    puts session.inspect
-    @name = session[:name]
     erb :battleships
   end
 
-  post '/new_player' do
-    puts "***" * 20
-    puts session.inspect
-    @name = params[:player_name]
-    session[:name] = @name
-    puts session.inspect
-    erb :player
+  get '/hit' do
+    @coordinate = params[:coordinate]
+    erb :hit
   end
 
   # start the server if ruby file executed directly
