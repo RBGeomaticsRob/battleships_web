@@ -24,11 +24,15 @@ class Battleships < Sinatra::Base
   end
 
   get '/set_ship' do
-    @location = params[:location]
-    @user = session[:player]
-    @user.place(Destroyer, 'A1', :south)
-    session[:player] = @user
-    erb :hit
+    begin
+      @location = params[:location]
+      @user = session[:player]
+      @user.place(Destroyer, 'A1', :south)
+      session[:player] = @user
+      erb :hit
+    rescue # 'collides with existing ship'
+      erb :collision
+    end
   end
 
 

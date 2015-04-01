@@ -5,15 +5,12 @@ Feature: send a hit and receive a hit or miss
 
     Scenario: send a hit and receive a hit or miss
         Given I am on the Battleships page
-        When I send "A1"
-        And I click the submit button
+        When I send a hit to "A1"
         Then I should see "A1"
 
     Scenario: send a hit and receive a collision error
         Given I am on the Battleships page
-        Given I already have ship in A1
-        When I send "A1"
-        When I click the submit button
+        Given I already have ship in "A1"
+        Given I am on the Battleships page
+        When I place ship in "A1"
         Then I should see 'error page'
-        Then I receive an error message
-        
