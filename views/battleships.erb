@@ -1,3 +1,12 @@
+  <head>
+    <title>Battleships Web</title>
+    <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+  </head>
+
+
+<h>Battleships Web</h>
+
+
 <form action='/hit'>
   <input type='text' name='coordinate'>
   <button>submit</button>
@@ -7,9 +16,66 @@
   <input type='text' name='direction'>
   <button>Submit</button>
 </form>
-<div>
-  ships = <%= @player.board.ships %>
-  hits = <%= @player.hits.length %>
-  misses = <%= @player.misses.length %>
-  game won? <%= @player.lost? %>
-</div>
+<ul style="font-size: 10px">
+  <li>ships = <%= @player.board.ships.length %></li>
+  <li>hits = <%= @player.hits.length %></li>
+  <li>misses = <%= @player.misses.length %></li>
+  <li>game won? = <%= @player.lost? %></li>
+</ul>
+
+<table border="1px">
+  <tr>
+    <th colspan="6">Player 1</th>
+  </tr>
+  <tr>
+    <td> </td>
+    <td>A</td>
+    <td>B</td>
+    <td>C</td>
+    <td>D</td>
+    <td>E</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+      <%= @player.hits.include? "A1" ? "H" : "~" %>
+      <%= @player.misses.include? "A1" ? "M" : "" %>
+    </td>
+    <td>~</td>
+    <td>~</td>
+    <td>~</td>
+    <td>~</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>~</td>
+    <td>~</td>
+    <td>~</td>
+    <td>~</td>
+    <td>~</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>~</td>
+    <td>~</td>
+    <td>~</td>
+    <td>~</td>
+    <td>~</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>~</td>
+    <td>~</td>
+    <td>~</td>
+    <td>~</td>
+    <td>~</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>~</td>
+    <td>~</td>
+    <td>~</td>
+    <td>~</td>
+    <td>~</td>
+  </tr>
+</table>

@@ -30,7 +30,7 @@ class Battleships < Sinatra::Base
       @user.place(Destroyer, 'A1', :south)
       session[:player] = @user
       erb :hit
-    rescue # 'collides with existing ship'
+    rescue
       erb :collision
     end
   end
