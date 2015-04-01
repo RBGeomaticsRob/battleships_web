@@ -4,6 +4,7 @@ Feature: send a hit and receive a hit or miss
 		I want to send a string
 
 		Scenario: send a hit and receive a hit or miss
-				Given a user is on Battleships page
-				When they send "string"
-				Then they receive a hit 
+				Given I am on the Battleships page
+				When I enter "Rob"
+        And I click the submit button
+				Then I should see "Player 1 = Rob"

@@ -1,12 +1,15 @@
-Given(/^a user is on Battleships page$/) do
-  #visit '/'
+Given(/^I am on the Battleships page$/) do
+  visit '/'
 end
 
-When(/^they send "(.*?)"$/) do |arg1|
-  fill_in('Coordinate', :with => arg1)
+When(/^I enter "([^"]*)"$/) do |arg1|
+  fill_in('player_name', :with => arg1)
 end
 
-Then(/^they receive a hit$/) do
-  visit '/hit'
-  page.should have_content("Hello!")
+When(/^I click the submit button$/) do
+  click_button('submit')
+end
+
+Then(/^I should see "([^"]*)"$/) do |arg1|
+  expect(page).to have_content(arg1)
 end
