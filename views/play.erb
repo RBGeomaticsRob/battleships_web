@@ -1,10 +1,10 @@
 <% def grid_symbol(column, row)
     if session[:player].hits.include?("#{column}#{row}")
-      return "X"
+      return "&#9875"
     elsif session[:player].misses.include?("#{column}#{row}")
-      return "O"
+      return "&#128123"
     else
-      "~"
+      "&#128031"
     end
    end %>
 
@@ -12,7 +12,7 @@
 
 <table data-purpose= "board" data-user="player_1" border="1px">
   <tr>
-    <th colspan="9">Player 1</th>
+    <th colspan="10">Player 1</th>
   </tr>
   <tr>
     <td> </td>
@@ -31,3 +31,31 @@
   <% end %>
 
 </table>
+
+<h3>
+  Fire Again?
+</h3>
+<form action='/play' method='post'>
+  <input type='text' name='coordinate'>
+  <button>Fire</button>
+</form>
+
+
+<form action='/' method='get'>
+  <button>Main Menu</button>
+</form>
+
+<div>
+  <h4>
+    Ships Placed = <%= session[:player].board.ships.length %>
+  </h4>
+  <h4>
+    Hits = <%= session[:player].hits.length %>
+  </h4>
+  <h4>
+    Misses = <%= session[:player].misses.length %>
+  </h4>
+  <h4>
+    Game won?: <%= session[:player].lost? %>
+  </h4>
+</div>

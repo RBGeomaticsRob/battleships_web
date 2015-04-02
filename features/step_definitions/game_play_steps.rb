@@ -16,5 +16,5 @@ Given(/^I already have ship in "([^"]*)"$/) do |arg1|
 end
 
 Then(/^I should see that a ship has been added to ships total$/) do
-  expect(page).to have_content('ships = 1')
+  expect(page).to have_content('Ships Placed = 1')
 end

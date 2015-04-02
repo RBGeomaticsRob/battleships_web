@@ -21,7 +21,6 @@ end
 
 Then(/^the grid should have (\d+) columns$/) do |columns|
   page.all("//table[@data-purpose='board'][@data-user='player_1']/tr[@data-row]").each_with_index do |el, index|
-    p index
     expect(page.all("//table[@data-purpose='board'][@data-user='player_1']/tr[@data-row='#{index+1}']/td[@data-column]").count).to eq columns.to_i
   end
 end

@@ -20,7 +20,7 @@ Feature:  Display grid to screen after a shot has been fired
       When I place ship in "A1"
       Given I am on the Battleships page
       When I send a hit to "A1"
-      Then I want to see a "X" in grid square "A1"
+      Then I want to see a "⚓" in grid square "A1"
 
 
 

@@ -1,17 +1,37 @@
-<form action='/play' method='put'>
-  <input type='text' name='coordinate'>
-  <button>submit</button>
-</form>
+<h1>Battleships Web
+
+</h1>
+
+<h3> Load your ships: </h3>
+
 <form action='/set_ship' method='post' >
   <input type='text' name='location'>
   <input type='text' name='direction'>
   <button>Submit</button>
 </form>
 
+<h3>
+
+Take Aim and Fire! </h3>
+
+<form action='/play' method='post'>
+  <input type='text' name='coordinate'>
+  <button>submit</button>
+</form>
+
+
 <div>
-  ships = <%= @player.board.ships.length %>
-  hits = <%= @player.hits.length %>
-  misses = <%= @player.misses.length %>
-  game won? <%= @player.lost? %>
+<h4>
+  Ships Placed = <%= session[:player].board.ships.length %>
+</h4>
+<h4>
+  Hits = <%= session[:player].hits.length %>
+</h4>
+<h4>
+  Misses = <%= session[:player].misses.length %>
+</h4>
+<h4>
+  Game won?: <%= session[:player].lost? %>
+</h4>
 </div>
 
