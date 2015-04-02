@@ -2,10 +2,6 @@ Given(/^I am on the Battleships page$/) do
   visit '/'
 end
 
-Then(/^I should see "([^"]*)"$/) do |arg1|
-  expect(page).to have_content(arg1)
-end
-
 Then(/^I should see 'error page'$/) do
   expect(page).to have_content('There\'s been a collision!')
 end

@@ -7,23 +7,18 @@ class Battleships < Sinatra::Base
   get '/' do
     session[:player] ||= Player.new
     @player = session[:player]
-    # puts '==='*20
-    # puts session.inspect
     erb :battleships
   end
 
-  get '/hit' do
-    # puts '***'*20
-    # puts session.inspect
-    @coordinate = params[:coordinate]
+  get '/play' do
     player = session[:player]
+    @coordinate = params[:coordinate]
     player.receive_hit(@coordinate)
     session[:player] = player
-    # puts session.inspect
-    erb :hit
+    erb :play
   end
 
-  get '/set_ship' do
+  put '/set_ship' do
     begin
       @location = params[:location]
       @user = session[:player]
