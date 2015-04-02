@@ -1,8 +1,8 @@
-<form method='put' action='/play'>
+<form action='/play' method='put'>
   <input type='text' name='coordinate'>
   <button>submit</button>
 </form>
-<form method='put' action='/set_ship'>
+<form method='post' action='/set_ship'>
   <input type='text' name='location'>
   <input type='text' name='direction'>
   <button>Submit</button>
@@ -15,40 +15,3 @@
   game won? <%= @player.lost? %>
 </div>
 
-<table data-purpose = "board" data-user="player_1">
-  <tr data-row = "1">
-  	<td data-column = "A">X</td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  </tr>
-  <tr data-row = "2">
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  </tr>
-  <tr data-row = "3">
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  </tr>
-  <tr data-row = "4">
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  </tr>
-  <tr data-row = "5">
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  </tr>
-</table>

@@ -13,18 +13,20 @@ class Battleships < Sinatra::Base
   get '/play' do
     player = session[:player]
     @coordinate = params[:coordinate]
+    p @coordinate
     player.receive_hit(@coordinate)
     session[:player] = player
+    p @coordinate
     erb :play
   end
 
-  put '/set_ship' do
+  post '/set_ship' do
     begin
       @location = params[:location]
       @user = session[:player]
       @user.place(Destroyer, 'A1', :south)
       session[:player] = @user
-      erb :hit
+      erb :play
     rescue
       erb :collision
     end

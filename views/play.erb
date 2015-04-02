@@ -1,7 +1,37 @@
-<div>
-  <h1><%= @coordinate %></h1>
-</div>
-
-<div>
-  <h1><%= @location %></h1>
-</div>
+<table data-purpose = "board" data-user="player_1">
+  <tr data-row = "1">
+  	<td data-column = "A"> <%="X" if @coordinate.length == 2 %> </td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  <tr data-row = "2">
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  <tr data-row = "3">
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  <tr data-row = "4">
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+  <tr data-row = "5">
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  	<td></td>
+  </tr>
+</table>
