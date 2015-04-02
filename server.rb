@@ -12,11 +12,8 @@ class Battleships < Sinatra::Base
 
   get '/play' do
     player = session[:player]
-    @coordinate = params[:coordinate]
-    p @coordinate
-    player.receive_hit(@coordinate)
+    player.receive_hit(params[:coordinate])
     session[:player] = player
-    p @coordinate
     erb :play
   end
 
