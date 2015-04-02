@@ -1,37 +1,33 @@
-<table data-purpose = "board" data-user="player_1">
-  <tr data-row = "1">
-  	<td data-column = "A"> <%="X" if params[:coordinate] == "A1" %> </td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
+<% def grid_symbol(column, row)
+    if session[:player].hits.include?("#{column}#{row}")
+      return "X"
+    elsif session[:player].misses.include?("#{column}#{row}")
+      return "O"
+    else
+      "~"
+    end
+   end %>
+
+<%= "<h1> WINNER! </h1>" if session[:player].lost? == true %>
+
+<table data-purpose= "board" data-user="player_1" border="1px">
+  <tr>
+    <th colspan="9">Player 1</th>
   </tr>
-  <tr data-row = "2">
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
+  <tr>
+    <td> </td>
+    <% ("A".."I").each do |column| %>
+      <td><%= column %> </td>
+    <% end %>
   </tr>
-  <tr data-row = "3">
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  </tr>
-  <tr data-row = "4">
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  </tr>
-  <tr data-row = "5">
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  	<td></td>
-  </tr>
+
+  <% (1..9).each do |row| %>
+    <%= "<tr data-row = \"#{row}\">" %>
+    <td><%= row %></td>
+    <% ("A".."I").each do |column| %>
+      <%= "<td data-column = \"#{column}\">" %><%= grid_symbol(column, row) %></td>
+    <% end %>
+    </tr>
+  <% end %>
+
 </table>

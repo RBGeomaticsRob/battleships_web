@@ -12,8 +12,8 @@ Feature:  Display grid to screen after a shot has been fired
 	    Given I am on the Battleships page
   		When I send a hit to "A1"
 	    Then I should see the table
-	    And the grid should have 5 rows
-	    And the grid should have 5 columns
+	    And the grid should have 9 rows
+	    And the grid should have 9 columns
 
   Scenario: I want to see a hit in grid square "A1" when I fire at it and it has a ship
       Given I am on the Battleships page
