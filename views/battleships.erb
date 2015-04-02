@@ -9,7 +9,7 @@
 </form>
 
 <div>
-  ships = <%= @player.board.ships %>
+  ships = <%= @player.board.ships.length %>
   hits = <%= @player.hits.length %>
   misses = <%= @player.misses.length %>
   game won? <%= @player.lost? %>
@@ -17,7 +17,7 @@
 
 <table data-purpose = "board" data-user="player_1">
   <tr data-row = "1">
-  	<td></td>
+  	<td data-column = "A">X</td>
   	<td></td>
   	<td></td>
   	<td></td>

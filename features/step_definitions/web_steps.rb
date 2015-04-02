@@ -19,7 +19,12 @@ Then(/^the grid should have (\d+) rows$/) do |arg1|
 end
 
 Then(/^the grid should have (\d+) columns$/) do |arg1|
-  page.all("//table[@data-purpose='board'][@data-user='player_1']/tr").each_with_index do |el, index| 
+  page.all("//table[@data-purpose='board'][@data-user='player_1']/tr").each_with_index do |el, index|
     expect(page.all("//table[@data-purpose='board'][@data-user='player_1']/tr[@data-row='#{index+1}']/td").count).to eq arg1.to_i
   end
+end
+
+Then(/^I want to see a "([^"]*)" in grid square "([^"]*)"$/) do |mark, grid_square|
+  a1_mark = page.all("//table/tr[@data-row='#{grid_square[1]}']/td[@data-column='#{grid_square[0]}']").map(&:text)
+  expect(a1_mark).to include mark
 end
