@@ -11,7 +11,7 @@ Then(/^I should see 'error page'$/) do
 end
 
 Then(/^I should see the table$/) do
-  page.should have_xpath("//table[@data-purpose='board' and @data-user='player_1']")
+  expect(page).to have_xpath("//table[@data-purpose='board'][@data-user='player_1']")
 end
 
 Then(/^the grid should have (\d+) rows$/) do |rows|
