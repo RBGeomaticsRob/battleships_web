@@ -1,6 +1,7 @@
 <h1>Battleships Web
 
 </h1>
+<h2>Welcome Player <%= session[:player] %>!</h2>
 
 <h3> Load your ships: </h3>
 
@@ -22,16 +23,16 @@ Take Aim and Fire! </h3>
 
 <div>
 <h4>
-  Ships Placed = <%= session[:player].board.ships.length %>
+  Ships Placed = <%= @other_player.board.ships.length %>
 </h4>
 <h4>
-  Hits = <%= session[:player].hits.length %>
+  Hits = <%= @player.hits.length %>
 </h4>
 <h4>
-  Misses = <%= session[:player].misses.length %>
+  Misses = <%= @player.misses.length %>
 </h4>
 <h4>
-  Game won?: <%= session[:player].lost? %>
+  Game won?: <%= @player.lost? %>
 </h4>
 </div>
 

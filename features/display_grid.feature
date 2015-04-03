@@ -8,7 +8,7 @@ Feature:  Display grid to screen after a shot has been fired
   		When I send a hit to "A1"
       Then I should see the table
 
-	Scenario: I want to see a 5x5 grid before starting
+	Scenario: I want to see a 9x9 grid before starting
 	    Given I am on the Battleships page
   		When I send a hit to "A1"
 	    Then I should see the table

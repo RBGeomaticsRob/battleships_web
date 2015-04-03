@@ -1,18 +1,18 @@
 <% def grid_symbol(column, row)
-    if session[:player].hits.include?("#{column}#{row}")
+    if @player.hits.include?("#{column}#{row}")
       return "&#9875"
-    elsif session[:player].misses.include?("#{column}#{row}")
+    elsif @player.misses.include?("#{column}#{row}")
       return "&#128123"
     else
       "&#128031"
     end
    end %>
 
-<%= "<h1> WINNER! </h1>" if session[:player].lost? == true %>
+<%= "<h1> WINNER! </h1>" if @player.lost? == true %>
 
 <table data-purpose= "board" data-user="player_1" border="1px">
   <tr>
-    <th colspan="10">Player 1</th>
+    <th colspan="10">Player <%= session[:player] %></th>
   </tr>
   <tr>
     <td> </td>
@@ -47,15 +47,15 @@
 
 <div>
   <h4>
-    Ships Placed = <%= session[:player].board.ships.length %>
+    Ships Placed = <%= @other_player.board.ships.length %>
   </h4>
   <h4>
-    Hits = <%= session[:player].hits.length %>
+    Hits = <%= @player.hits.length %>
   </h4>
   <h4>
-    Misses = <%= session[:player].misses.length %>
+    Misses = <%= @player.misses.length %>
   </h4>
   <h4>
-    Game won?: <%= session[:player].lost? %>
+    Game won?: <%= @player.lost? %>
   </h4>
 </div>
