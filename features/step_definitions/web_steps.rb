@@ -7,7 +7,7 @@ Given(/^I am on the Play page$/) do
 end
 
 Then(/^I should see 'error page'$/) do
-  expect(page).to have_content('There\'s been a collision!')
+  expect(page).to have_content('Woops!')
 end
 
 Then(/^I should see the table$/) do
